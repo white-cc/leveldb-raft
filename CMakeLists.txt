@@ -513,3 +513,13 @@ if(LEVELDB_INSTALL)
     DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
   )
 endif(LEVELDB_INSTALL)
+
+option(USE_RAFT_SYNC "opt build leveldb with raft sync" ON) 
+if(USE_RAFT_SYNC)
+  add_subdirectory("third_party/nuraft-cmake")
+  
+  add_library()
+
+  add_executable(sync_server "")
+
+endif()

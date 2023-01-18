@@ -4,3 +4,9 @@
 [submodule "third_party/benchmark"]
 	path = third_party/benchmark
 	url = https://github.com/google/benchmark
+[submodule "third_party/NuRaft"]
+	path = third_party/NuRaft
+	url = https://github.com/white-cc/NuRaft.git
+[submodule "third_party/asio"]
+	path = third_party/asio
+	url = https://github.com/chriskohlhoff/asio
