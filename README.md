@@ -23,7 +23,8 @@ cmake .. -DUSE_RAFT_SYNC = 1  && make -j
 
 you can use as a submodule in your project
 ```
-${LEVELDB_SYNC_LIB}
+lib ${LEVELDB_SYNC_LIB} 
+include_path ${LEVELDB_PUBLIC_INCLUDE_DIR}
 ```
 or exec leveldb_raft for test
 ```
@@ -35,13 +36,13 @@ build/leveldb_raft 1 127.0.0.1:10001
 ```
 add server into your raft group
 ```
->add 127.0.0.1:10001
+> add 127.0.0.1:10001
 ```
 list raft group
 ```
->ls
+> ls
 ```
-More
+More help
 ```
->help
+> help
 ```
