@@ -516,10 +516,32 @@ endif(LEVELDB_INSTALL)
 
 option(USE_RAFT_SYNC "opt build leveldb with raft sync" ON) 
 if(USE_RAFT_SYNC)
+  # use raft for sync
+  set(NURAFT_ROOT_DIR "${PROJECT_SOURCE_DIR}/third_party/NuRaft")
+  set(NURAFT_LIBRARY levedb_contrib::nuraft)
   add_subdirectory("third_party/nuraft-cmake")
   
-  add_library()
+  # sync part
+  set(LEVELDB_SYNC_PATH "${PROJECT_SOURCE_DIR}/sync")
 
-  add_executable(sync_server "")
+  set(LEVELDB_SYNC_SRC
+    ${LEVELDB_SYNC_PATH}/sync_client.cpp
+    ${LEVELDB_SYNC_PATH}/sync_server.cpp
+    ${LEVELDB_SYNC_PATH}/sync.cpp
+  )
+
+  set(LEVELDB_SYNC_INCLUDE
+    ${LEVELDB_SYNC_PATH}/sync_client.h
+    ${LEVELDB_SYNC_PATH}/sync_server.h
+    ${LEVELDB_PUBLIC_INCLUDE_DIR}/sync.h
+  )
+
+  message("use raft for sync with: " ${NURAFT_LIBRARY})
+
+  add_library(leveldb_sync ${NURAFT_LIBRARY} ${LEVELDB_SYNC_SRC} ${LEVELDB_SYNC_INCLUDE})
+
+  target_include_directories(leveldb_sync "${NURAFT_ROOT_DIR}/include")
+
+  add_executable(sync_server leveldb_sync)
 
 endif()

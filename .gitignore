@@ -6,3 +6,5 @@
 # Build directory.
 build/
 out/
+quick_test/lib/libnuraft.a
+quick_test/lib/libleveldb.a
