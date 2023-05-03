@@ -1,6 +1,7 @@
 #pragma once
 
-#include
+#include <sync/Context.h>
+#include <sync/SyncStateMachine.h>
 
 namespace sync
 {
@@ -12,7 +13,6 @@ public:
     SyncServer(/* args */);
     ~SyncServer();
 };
-
 
 
 }

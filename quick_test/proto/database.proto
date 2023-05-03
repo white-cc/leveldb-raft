@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package database;
+
+// Interface exported by the server.
+service Database {
+
+  rpc Put(Data) returns (Result) {}
+
+  rpc Get(Key) returns (Data) {}
+
+  rpc Delete(Key) returns (Result) {}
+
+}
+
+// data with key-value
+message Data{
+    Key key = 1; 
+    string value = 2;
+}
+
+// key
+message Key{
+    string value = 1;
+}
+
+// result for exec 
+message Result{
+    bool error = 1; 
+    string value = 2; 
+}
