@@ -48,6 +48,9 @@ namespace database {
 class Data;
 struct DataDefaultTypeInternal;
 extern DataDefaultTypeInternal _Data_default_instance_;
+class DataOptionPayload;
+struct DataOptionPayloadDefaultTypeInternal;
+extern DataOptionPayloadDefaultTypeInternal _DataOptionPayload_default_instance_;
 class Key;
 struct KeyDefaultTypeInternal;
 extern KeyDefaultTypeInternal _Key_default_instance_;
@@ -57,6 +60,7 @@ extern ResultDefaultTypeInternal _Result_default_instance_;
 }  // namespace database
 PROTOBUF_NAMESPACE_OPEN
 template<> ::database::Data* Arena::CreateMaybeMessage<::database::Data>(Arena*);
+template<> ::database::DataOptionPayload* Arena::CreateMaybeMessage<::database::DataOptionPayload>(Arena*);
 template<> ::database::Key* Arena::CreateMaybeMessage<::database::Key>(Arena*);
 template<> ::database::Result* Arena::CreateMaybeMessage<::database::Result>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -358,9 +362,24 @@ class Key final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kValueFieldNumber = 1,
+    kNanmeSpaceFieldNumber = 1,
+    kValueFieldNumber = 2,
   };
-  // string value = 1;
+  // string nanme_space = 1;
+  void clear_nanme_space();
+  const std::string& nanme_space() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_nanme_space(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_nanme_space();
+  PROTOBUF_NODISCARD std::string* release_nanme_space();
+  void set_allocated_nanme_space(std::string* nanme_space);
+  private:
+  const std::string& _internal_nanme_space() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_nanme_space(const std::string& value);
+  std::string* _internal_mutable_nanme_space();
+  public:
+
+  // string value = 2;
   void clear_value();
   const std::string& value() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -382,6 +401,7 @@ class Key final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nanme_space_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -552,6 +572,202 @@ class Result final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_database_2eproto;
 };
+// -------------------------------------------------------------------
+
+class DataOptionPayload final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:database.DataOptionPayload) */ {
+ public:
+  inline DataOptionPayload() : DataOptionPayload(nullptr) {}
+  ~DataOptionPayload() override;
+  explicit PROTOBUF_CONSTEXPR DataOptionPayload(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DataOptionPayload(const DataOptionPayload& from);
+  DataOptionPayload(DataOptionPayload&& from) noexcept
+    : DataOptionPayload() {
+    *this = ::std::move(from);
+  }
+
+  inline DataOptionPayload& operator=(const DataOptionPayload& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DataOptionPayload& operator=(DataOptionPayload&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DataOptionPayload& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DataOptionPayload* internal_default_instance() {
+    return reinterpret_cast<const DataOptionPayload*>(
+               &_DataOptionPayload_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(DataOptionPayload& a, DataOptionPayload& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DataOptionPayload* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DataOptionPayload* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DataOptionPayload* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DataOptionPayload>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DataOptionPayload& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DataOptionPayload& from) {
+    DataOptionPayload::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DataOptionPayload* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "database.DataOptionPayload";
+  }
+  protected:
+  explicit DataOptionPayload(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSpaceFieldNumber = 2,
+    kKeyFieldNumber = 3,
+    kValueFieldNumber = 4,
+    kOptTypeFieldNumber = 1,
+  };
+  // string space = 2;
+  void clear_space();
+  const std::string& space() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_space(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_space();
+  PROTOBUF_NODISCARD std::string* release_space();
+  void set_allocated_space(std::string* space);
+  private:
+  const std::string& _internal_space() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_space(const std::string& value);
+  std::string* _internal_mutable_space();
+  public:
+
+  // string key = 3;
+  void clear_key();
+  const std::string& key() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_key(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_key();
+  PROTOBUF_NODISCARD std::string* release_key();
+  void set_allocated_key(std::string* key);
+  private:
+  const std::string& _internal_key() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
+  std::string* _internal_mutable_key();
+  public:
+
+  // string value = 4;
+  void clear_value();
+  const std::string& value() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_value(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_value();
+  PROTOBUF_NODISCARD std::string* release_value();
+  void set_allocated_value(std::string* value);
+  private:
+  const std::string& _internal_value() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(const std::string& value);
+  std::string* _internal_mutable_value();
+  public:
+
+  // uint32 opt_type = 1;
+  void clear_opt_type();
+  uint32_t opt_type() const;
+  void set_opt_type(uint32_t value);
+  private:
+  uint32_t _internal_opt_type() const;
+  void _internal_set_opt_type(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:database.DataOptionPayload)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr space_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
+    uint32_t opt_type_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_database_2eproto;
+};
 // ===================================================================
 
 
@@ -707,7 +923,57 @@ inline void Data::set_allocated_value(std::string* value) {
 
 // Key
 
-// string value = 1;
+// string nanme_space = 1;
+inline void Key::clear_nanme_space() {
+  _impl_.nanme_space_.ClearToEmpty();
+}
+inline const std::string& Key::nanme_space() const {
+  // @@protoc_insertion_point(field_get:database.Key.nanme_space)
+  return _internal_nanme_space();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Key::set_nanme_space(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.nanme_space_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:database.Key.nanme_space)
+}
+inline std::string* Key::mutable_nanme_space() {
+  std::string* _s = _internal_mutable_nanme_space();
+  // @@protoc_insertion_point(field_mutable:database.Key.nanme_space)
+  return _s;
+}
+inline const std::string& Key::_internal_nanme_space() const {
+  return _impl_.nanme_space_.Get();
+}
+inline void Key::_internal_set_nanme_space(const std::string& value) {
+  
+  _impl_.nanme_space_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Key::_internal_mutable_nanme_space() {
+  
+  return _impl_.nanme_space_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Key::release_nanme_space() {
+  // @@protoc_insertion_point(field_release:database.Key.nanme_space)
+  return _impl_.nanme_space_.Release();
+}
+inline void Key::set_allocated_nanme_space(std::string* nanme_space) {
+  if (nanme_space != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.nanme_space_.SetAllocated(nanme_space, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.nanme_space_.IsDefault()) {
+    _impl_.nanme_space_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:database.Key.nanme_space)
+}
+
+// string value = 2;
 inline void Key::clear_value() {
   _impl_.value_.ClearToEmpty();
 }
@@ -831,9 +1097,185 @@ inline void Result::set_allocated_value(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:database.Result.value)
 }
 
+// -------------------------------------------------------------------
+
+// DataOptionPayload
+
+// uint32 opt_type = 1;
+inline void DataOptionPayload::clear_opt_type() {
+  _impl_.opt_type_ = 0u;
+}
+inline uint32_t DataOptionPayload::_internal_opt_type() const {
+  return _impl_.opt_type_;
+}
+inline uint32_t DataOptionPayload::opt_type() const {
+  // @@protoc_insertion_point(field_get:database.DataOptionPayload.opt_type)
+  return _internal_opt_type();
+}
+inline void DataOptionPayload::_internal_set_opt_type(uint32_t value) {
+  
+  _impl_.opt_type_ = value;
+}
+inline void DataOptionPayload::set_opt_type(uint32_t value) {
+  _internal_set_opt_type(value);
+  // @@protoc_insertion_point(field_set:database.DataOptionPayload.opt_type)
+}
+
+// string space = 2;
+inline void DataOptionPayload::clear_space() {
+  _impl_.space_.ClearToEmpty();
+}
+inline const std::string& DataOptionPayload::space() const {
+  // @@protoc_insertion_point(field_get:database.DataOptionPayload.space)
+  return _internal_space();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DataOptionPayload::set_space(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.space_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:database.DataOptionPayload.space)
+}
+inline std::string* DataOptionPayload::mutable_space() {
+  std::string* _s = _internal_mutable_space();
+  // @@protoc_insertion_point(field_mutable:database.DataOptionPayload.space)
+  return _s;
+}
+inline const std::string& DataOptionPayload::_internal_space() const {
+  return _impl_.space_.Get();
+}
+inline void DataOptionPayload::_internal_set_space(const std::string& value) {
+  
+  _impl_.space_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DataOptionPayload::_internal_mutable_space() {
+  
+  return _impl_.space_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DataOptionPayload::release_space() {
+  // @@protoc_insertion_point(field_release:database.DataOptionPayload.space)
+  return _impl_.space_.Release();
+}
+inline void DataOptionPayload::set_allocated_space(std::string* space) {
+  if (space != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.space_.SetAllocated(space, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.space_.IsDefault()) {
+    _impl_.space_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:database.DataOptionPayload.space)
+}
+
+// string key = 3;
+inline void DataOptionPayload::clear_key() {
+  _impl_.key_.ClearToEmpty();
+}
+inline const std::string& DataOptionPayload::key() const {
+  // @@protoc_insertion_point(field_get:database.DataOptionPayload.key)
+  return _internal_key();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DataOptionPayload::set_key(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:database.DataOptionPayload.key)
+}
+inline std::string* DataOptionPayload::mutable_key() {
+  std::string* _s = _internal_mutable_key();
+  // @@protoc_insertion_point(field_mutable:database.DataOptionPayload.key)
+  return _s;
+}
+inline const std::string& DataOptionPayload::_internal_key() const {
+  return _impl_.key_.Get();
+}
+inline void DataOptionPayload::_internal_set_key(const std::string& value) {
+  
+  _impl_.key_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DataOptionPayload::_internal_mutable_key() {
+  
+  return _impl_.key_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DataOptionPayload::release_key() {
+  // @@protoc_insertion_point(field_release:database.DataOptionPayload.key)
+  return _impl_.key_.Release();
+}
+inline void DataOptionPayload::set_allocated_key(std::string* key) {
+  if (key != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.key_.IsDefault()) {
+    _impl_.key_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:database.DataOptionPayload.key)
+}
+
+// string value = 4;
+inline void DataOptionPayload::clear_value() {
+  _impl_.value_.ClearToEmpty();
+}
+inline const std::string& DataOptionPayload::value() const {
+  // @@protoc_insertion_point(field_get:database.DataOptionPayload.value)
+  return _internal_value();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DataOptionPayload::set_value(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.value_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:database.DataOptionPayload.value)
+}
+inline std::string* DataOptionPayload::mutable_value() {
+  std::string* _s = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:database.DataOptionPayload.value)
+  return _s;
+}
+inline const std::string& DataOptionPayload::_internal_value() const {
+  return _impl_.value_.Get();
+}
+inline void DataOptionPayload::_internal_set_value(const std::string& value) {
+  
+  _impl_.value_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DataOptionPayload::_internal_mutable_value() {
+  
+  return _impl_.value_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DataOptionPayload::release_value() {
+  // @@protoc_insertion_point(field_release:database.DataOptionPayload.value)
+  return _impl_.value_.Release();
+}
+inline void DataOptionPayload::set_allocated_value(std::string* value) {
+  if (value != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.value_.SetAllocated(value, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.value_.IsDefault()) {
+    _impl_.value_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:database.DataOptionPayload.value)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

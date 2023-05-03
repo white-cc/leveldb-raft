@@ -1,5 +1,6 @@
-#include <libnuraft/nuraft.hxx>
 #include <sync/SyncLogStore.h>
+#include <libnuraft/nuraft.hxx>
+
 
 
 using namespace nuraft;

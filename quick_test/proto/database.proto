@@ -21,11 +21,21 @@ message Data{
 
 // key
 message Key{
-    string value = 1;
+    string nanme_space = 1 ; 
+    string value = 2;
 }
 
 // result for exec 
 message Result{
     bool error = 1; 
     string value = 2; 
+}
+
+// For server internal WAL
+message DataOptionPayload
+{
+    uint32 opt_type = 1 ;
+    string space = 2 ;
+    string key = 3;
+    string value = 4; 
 }

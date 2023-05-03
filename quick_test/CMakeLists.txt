@@ -18,9 +18,16 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_EXTENSIONS OFF)
 endif(NOT CMAKE_CXX_STANDARD)
 
+
+include_directories("/opt/homebrew/Cellar/grpc/1.52.1/include")
+include_directories("/opt/homebrew/Cellar/protobuf/21.12/include")
+
 add_executable(sync_qiuck_test "main.cpp")
 
+
 target_include_directories(sync_qiuck_test PUBLIC "${PROJECT_SOURCE_DIR}/include/")
+target_include_directories(sync_qiuck_test PUBLIC "${PROJECT_SOURCE_DIR}/sync")
+target_include_directories(sync_qiuck_test PUBLIC "${PROJECT_SOURCE_DIR}/proto")
 
 target_link_libraries(
     sync_qiuck_test 

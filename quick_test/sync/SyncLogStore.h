@@ -3,7 +3,6 @@
 #include <memory>
 #include <vector>
 #include <libnuraft/internal_timer.hxx>
-#include <libnuraft/
 #include <libnuraft/nuraft.hxx>
 
 using namespace nuraft;

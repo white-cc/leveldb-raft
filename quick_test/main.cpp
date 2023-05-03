@@ -1,12 +1,11 @@
 #include <iostream>
-#include <libnuraft/nuraft.hxx>
-#include <leveldb/db.h>
+#include <programs/SyncServer.h>
 
 
 int main()
 {
-    std::cout<<"hello world"<<std::endl;
-
-
+    sync::SyncServer server;
+    server.run();
+    
     return 0;
 }

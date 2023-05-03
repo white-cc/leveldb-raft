@@ -5,13 +5,16 @@
 
 namespace sync
 {
+
+// grpc server and syncdb server
 class SyncServer
 {
 private:
-    /* data */
+    
 public:
-    SyncServer(/* args */);
+    SyncServer();
     ~SyncServer();
+    run();
 };
 
 
