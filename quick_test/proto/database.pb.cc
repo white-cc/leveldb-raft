@@ -37,7 +37,7 @@ struct DataDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DataDefaultTypeInternal _Data_default_instance_;
 PROTOBUF_CONSTEXPR Key::Key(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.nanme_space_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.name_space_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.value_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct KeyDefaultTypeInternal {
@@ -99,7 +99,7 @@ const uint32_t TableStruct_database_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::database::Key, _impl_.nanme_space_),
+  PROTOBUF_FIELD_OFFSET(::database::Key, _impl_.name_space_),
   PROTOBUF_FIELD_OFFSET(::database::Key, _impl_.value_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::database::Result, _internal_metadata_),
@@ -136,19 +136,19 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_database_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\016database.proto\022\010database\"1\n\004Data\022\032\n\003ke"
-  "y\030\001 \001(\0132\r.database.Key\022\r\n\005value\030\002 \001(\t\")\n"
-  "\003Key\022\023\n\013nanme_space\030\001 \001(\t\022\r\n\005value\030\002 \001(\t"
-  "\"&\n\006Result\022\r\n\005error\030\001 \001(\010\022\r\n\005value\030\002 \001(\t"
-  "\"P\n\021DataOptionPayload\022\020\n\010opt_type\030\001 \001(\r\022"
-  "\r\n\005space\030\002 \001(\t\022\013\n\003key\030\003 \001(\t\022\r\n\005value\030\004 \001"
-  "(\t2\212\001\n\010Database\022)\n\003Put\022\016.database.Data\032\020"
-  ".database.Result\"\000\022&\n\003Get\022\r.database.Key"
-  "\032\016.database.Data\"\000\022+\n\006Delete\022\r.database."
-  "Key\032\020.database.Result\"\000b\006proto3"
+  "y\030\001 \001(\0132\r.database.Key\022\r\n\005value\030\002 \001(\t\"(\n"
+  "\003Key\022\022\n\nname_space\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\""
+  "&\n\006Result\022\r\n\005error\030\001 \001(\010\022\r\n\005value\030\002 \001(\t\""
+  "P\n\021DataOptionPayload\022\020\n\010opt_type\030\001 \001(\r\022\r"
+  "\n\005space\030\002 \001(\t\022\013\n\003key\030\003 \001(\t\022\r\n\005value\030\004 \001("
+  "\t2\212\001\n\010Database\022)\n\003Put\022\016.database.Data\032\020."
+  "database.Result\"\000\022&\n\003Get\022\r.database.Key\032"
+  "\016.database.Data\"\000\022+\n\006Delete\022\r.database.K"
+  "ey\032\020.database.Result\"\000b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_database_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_database_2eproto = {
-    false, false, 391, descriptor_table_protodef_database_2eproto,
+    false, false, 390, descriptor_table_protodef_database_2eproto,
     "database.proto",
     &descriptor_table_database_2eproto_once, nullptr, 0, 4,
     schemas, file_default_instances, TableStruct_database_2eproto::offsets,
@@ -424,17 +424,17 @@ Key::Key(const Key& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   Key* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.nanme_space_){}
+      decltype(_impl_.name_space_){}
     , decltype(_impl_.value_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.nanme_space_.InitDefault();
+  _impl_.name_space_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.nanme_space_.Set("", GetArenaForAllocation());
+    _impl_.name_space_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_nanme_space().empty()) {
-    _this->_impl_.nanme_space_.Set(from._internal_nanme_space(), 
+  if (!from._internal_name_space().empty()) {
+    _this->_impl_.name_space_.Set(from._internal_name_space(), 
       _this->GetArenaForAllocation());
   }
   _impl_.value_.InitDefault();
@@ -453,13 +453,13 @@ inline void Key::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.nanme_space_){}
+      decltype(_impl_.name_space_){}
     , decltype(_impl_.value_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.nanme_space_.InitDefault();
+  _impl_.name_space_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.nanme_space_.Set("", GetArenaForAllocation());
+    _impl_.name_space_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.value_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -478,7 +478,7 @@ Key::~Key() {
 
 inline void Key::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.nanme_space_.Destroy();
+  _impl_.name_space_.Destroy();
   _impl_.value_.Destroy();
 }
 
@@ -492,7 +492,7 @@ void Key::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.nanme_space_.ClearToEmpty();
+  _impl_.name_space_.ClearToEmpty();
   _impl_.value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -503,13 +503,13 @@ const char* Key::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string nanme_space = 1;
+      // string name_space = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_nanme_space();
+          auto str = _internal_mutable_name_space();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "database.Key.nanme_space"));
+          CHK_(::_pbi::VerifyUTF8(str, "database.Key.name_space"));
         } else
           goto handle_unusual;
         continue;
@@ -552,14 +552,14 @@ uint8_t* Key::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string nanme_space = 1;
-  if (!this->_internal_nanme_space().empty()) {
+  // string name_space = 1;
+  if (!this->_internal_name_space().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_nanme_space().data(), static_cast<int>(this->_internal_nanme_space().length()),
+      this->_internal_name_space().data(), static_cast<int>(this->_internal_name_space().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "database.Key.nanme_space");
+      "database.Key.name_space");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_nanme_space(), target);
+        1, this->_internal_name_space(), target);
   }
 
   // string value = 2;
@@ -588,11 +588,11 @@ size_t Key::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string nanme_space = 1;
-  if (!this->_internal_nanme_space().empty()) {
+  // string name_space = 1;
+  if (!this->_internal_name_space().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_nanme_space());
+        this->_internal_name_space());
   }
 
   // string value = 2;
@@ -620,8 +620,8 @@ void Key::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_N
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_nanme_space().empty()) {
-    _this->_internal_set_nanme_space(from._internal_nanme_space());
+  if (!from._internal_name_space().empty()) {
+    _this->_internal_set_name_space(from._internal_name_space());
   }
   if (!from._internal_value().empty()) {
     _this->_internal_set_value(from._internal_value());
@@ -646,8 +646,8 @@ void Key::InternalSwap(Key* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.nanme_space_, lhs_arena,
-      &other->_impl_.nanme_space_, rhs_arena
+      &_impl_.name_space_, lhs_arena,
+      &other->_impl_.name_space_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.value_, lhs_arena,

@@ -21,7 +21,7 @@ message Data{
 
 // key
 message Key{
-    string nanme_space = 1 ; 
+    string name_space = 1 ; 
     string value = 2;
 }
 

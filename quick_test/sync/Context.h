@@ -16,12 +16,9 @@ using SyncStateMachinePtr = std::shared_ptr<SyncStateMachine>;
 class SyncStateManager;
 using SyncStateManagerPtr = std::shared_ptr<SyncStateManager>;
 
-
 class Context
 {
 private:
-    SyncStateMachinePtr state_machine;
-    SyncStateManagerPtr state_manager;
     // runtime option
     std::shared_ptr<logger_wrapper> log; 
 
@@ -38,8 +35,7 @@ public:
     // DB option on open
     std::string db_path; 
     bool db_create_namespace_if_missing ;
-    
-    
+
 };
 
 

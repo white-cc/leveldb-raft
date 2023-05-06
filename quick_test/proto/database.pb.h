@@ -362,21 +362,21 @@ class Key final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNanmeSpaceFieldNumber = 1,
+    kNameSpaceFieldNumber = 1,
     kValueFieldNumber = 2,
   };
-  // string nanme_space = 1;
-  void clear_nanme_space();
-  const std::string& nanme_space() const;
+  // string name_space = 1;
+  void clear_name_space();
+  const std::string& name_space() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_nanme_space(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_nanme_space();
-  PROTOBUF_NODISCARD std::string* release_nanme_space();
-  void set_allocated_nanme_space(std::string* nanme_space);
+  void set_name_space(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name_space();
+  PROTOBUF_NODISCARD std::string* release_name_space();
+  void set_allocated_name_space(std::string* name_space);
   private:
-  const std::string& _internal_nanme_space() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_nanme_space(const std::string& value);
-  std::string* _internal_mutable_nanme_space();
+  const std::string& _internal_name_space() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name_space(const std::string& value);
+  std::string* _internal_mutable_name_space();
   public:
 
   // string value = 2;
@@ -401,7 +401,7 @@ class Key final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nanme_space_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_space_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -923,54 +923,54 @@ inline void Data::set_allocated_value(std::string* value) {
 
 // Key
 
-// string nanme_space = 1;
-inline void Key::clear_nanme_space() {
-  _impl_.nanme_space_.ClearToEmpty();
+// string name_space = 1;
+inline void Key::clear_name_space() {
+  _impl_.name_space_.ClearToEmpty();
 }
-inline const std::string& Key::nanme_space() const {
-  // @@protoc_insertion_point(field_get:database.Key.nanme_space)
-  return _internal_nanme_space();
+inline const std::string& Key::name_space() const {
+  // @@protoc_insertion_point(field_get:database.Key.name_space)
+  return _internal_name_space();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void Key::set_nanme_space(ArgT0&& arg0, ArgT... args) {
+void Key::set_name_space(ArgT0&& arg0, ArgT... args) {
  
- _impl_.nanme_space_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:database.Key.nanme_space)
+ _impl_.name_space_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:database.Key.name_space)
 }
-inline std::string* Key::mutable_nanme_space() {
-  std::string* _s = _internal_mutable_nanme_space();
-  // @@protoc_insertion_point(field_mutable:database.Key.nanme_space)
+inline std::string* Key::mutable_name_space() {
+  std::string* _s = _internal_mutable_name_space();
+  // @@protoc_insertion_point(field_mutable:database.Key.name_space)
   return _s;
 }
-inline const std::string& Key::_internal_nanme_space() const {
-  return _impl_.nanme_space_.Get();
+inline const std::string& Key::_internal_name_space() const {
+  return _impl_.name_space_.Get();
 }
-inline void Key::_internal_set_nanme_space(const std::string& value) {
+inline void Key::_internal_set_name_space(const std::string& value) {
   
-  _impl_.nanme_space_.Set(value, GetArenaForAllocation());
+  _impl_.name_space_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Key::_internal_mutable_nanme_space() {
+inline std::string* Key::_internal_mutable_name_space() {
   
-  return _impl_.nanme_space_.Mutable(GetArenaForAllocation());
+  return _impl_.name_space_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Key::release_nanme_space() {
-  // @@protoc_insertion_point(field_release:database.Key.nanme_space)
-  return _impl_.nanme_space_.Release();
+inline std::string* Key::release_name_space() {
+  // @@protoc_insertion_point(field_release:database.Key.name_space)
+  return _impl_.name_space_.Release();
 }
-inline void Key::set_allocated_nanme_space(std::string* nanme_space) {
-  if (nanme_space != nullptr) {
+inline void Key::set_allocated_name_space(std::string* name_space) {
+  if (name_space != nullptr) {
     
   } else {
     
   }
-  _impl_.nanme_space_.SetAllocated(nanme_space, GetArenaForAllocation());
+  _impl_.name_space_.SetAllocated(name_space, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.nanme_space_.IsDefault()) {
-    _impl_.nanme_space_.Set("", GetArenaForAllocation());
+  if (_impl_.name_space_.IsDefault()) {
+    _impl_.name_space_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:database.Key.nanme_space)
+  // @@protoc_insertion_point(field_set_allocated:database.Key.name_space)
 }
 
 // string value = 2;
